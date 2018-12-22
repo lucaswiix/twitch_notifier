@@ -1,10 +1,25 @@
-# Install
+<center># Wiix Twitch Notifier</center> 
 
-To instal go to wtw.js and edit line 101 to your Client ID from Twitch.tv API developer.
+## English
+### How to use
 
-And you can add ur channels in line 96. 
+	#Fist step:
+		Go to wtw.js file and change lines 3 and 4 with ur settings. 
+		Line 3 u ill put channels what u want check if online or not.
+		Line 4 put ur ClientID get by Api of Twitch.Tv (https://glass.twitch.tv/console/apps/create);
 
+## Portuguese-BR
+### Como usar:
 
-Demo: riot-global.com.br
+	#Primeira etapa: 
+		Vá até o arquivo wtw.js e modifique para suas necessidados.
+		As linhas necessárias para modificar são a 3 e a 4.
+		A linha 3 você irá colocar os canais que deseja checar se estão online, ou não.
+		Na linha 4 é necessário colocar seu ClientID para autenticar a API da twitch.tv. (Obtem aqui: <a href="https://glass.twitch.tv/console/apps/create">https://glass.twitch.tv/console/apps/create</a<);
+
+## Demo: 
+<a href="riot-global.com.br" target="_blank">Demo 1</a>
+<a href="lycanzito.com.br" target="_blank">Demo 2</a>
+
 
 
