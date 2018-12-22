@@ -1,4 +1,4 @@
-<center># Wiix Twitch Notifier</center> 
+# Wiix Twitch Notifier 
 
 ## English
 ### How to use
