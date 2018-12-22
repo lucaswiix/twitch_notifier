@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var channels = "eowiixtv,channhel2,channel3"; // Here your add ur channel with ,
+    var channels = "eowiix,channhel2,channel3"; // Here your add ur channel with ,
 
     var ClientID = "000000000000000000000000000"; // Put ur Clientid
 
