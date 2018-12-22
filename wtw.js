@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+    var channels = "eowiixtv,channhel2,channel3"; // Here your add ur channel with ,
+
+    var ClientID = "000000000000000000000000000"; // Put ur Clientid
+
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -93,12 +98,11 @@ $(document).ready(function() {
     }
 
     function check() {
-        var channels = "eliastibianodoido,rubini,king_apoli,taldoedrao,gonyxazt,hashtagtitio,xoxim,jardineiroxd,metyzera,kathyzinha,mah_sz,tatoowtv";
         $.ajax({
             url: "https://api.twitch.tv/kraken/streams?channel=" + channels,
             dataType: 'json',
             headers: {
-                'Client-ID': '8hpijtqsoexg9yepbs9m9xm3cfgpor'
+                'Client-ID': ClientID
             },
             success: function(channel) {
                 if (channel["_total"] == 0) return;
