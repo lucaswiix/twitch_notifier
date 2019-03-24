@@ -1,125 +1,15 @@
 // WIIXZER TWITCH NOTIFICATION V4
-
 $(document).ready(function() {
-
     // Menu
     var title = " ";
     var isGame = "Tibia";
     var findChannels = "nattank,eliastibianodoido,ddd_pinda,rubini,Abak,Drufoox,gonyxazt,hashtagtitio,xoxim,jardineiroxd,metyzera,kathyzinha,mah_sz,tatoowtv";
 
-
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
-    }
-
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1)
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length)
-            }
-        }
-        return ""
-    }
-    var a = [];
-    var c = [];
-    var l;
-    var t = c.length;
-    var state = 1;
-
-    function expand() {
-        $(".live_popup").animate({
-            bottom: 0
-        }, 500);
-        $("#live_btn").html('<img src="arrow_bot.png" alt="Hide streams">');
-        state = 1
-    }
-
-    function hide() {
-        $(".live_popup").animate({
-            bottom: -100
-        }, 500);
-        $("#live_btn").html('<img src="arrow_top.png" alt="Show streams">');
-        state = 0
-    }
-
-    function show() {
-        console.log(a);
-        if(a["length"] == 0) return false;
-       
-            var t = a[0]["streams"].length;
-            var check = false;
-
-            for (l = 0; l < t; l++) { 
-                var status = a[0]["streams"][l]["channel"]["status"];
-                if(a[0]["streams"][l]["channel"]["game"] == isGame && status.indexOf(title) != -1){                    
-                    var check = true;
-                }                         
-            }
-            if(!check) return;
-
-
-        // $("body").append('<div class="live_popup"><div id="live_btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></div><div id="live_popup_ch"></div></div>');
-        $("body").append('<div class="live_popup"><button id="live_btn"><img src="arrow_bot.png" alt="Hide streams"></button><div id="live_popup_ch"></div></div>');
-
-
-        var total = a[0]["_total"];
-        var i;
-        for (i = 0; i < total; i++) {
-            var c = a[0]["streams"][i]["channel"];
-            var p = a[0]["streams"][i]["preview"];
-            var status = c.status;
-            if(status.indexOf(title) == -1) continue;
-            if (c.game != isGame) continue;
-            if (!c || !p) continue;
-            $("#live_popup_ch").append('<div class="item-wiix"><a href="' + c.url + '" target="_blank" title="' + c.display_name + '"><div class="each-stream"><div class="live"><img src="' + p.medium + '" height="54" width="108"  alt="' + c.display_name + '"></div><div class="title"><span>' + c.display_name + '</span></div></div></a></div>');
-            // $("#live_popup_ch").append('<a href="' + c.url + '" target="_blank" title="' + c.display_name + '"><div class="each-stream"><div class="live"><img src="' + p.medium + '" height="54" width="108" alt="' + c.display_name + '"></div><div class="title"><span>' + c.display_name + '</span></div></div></a>');
-        }   
-        setTimeout(function() {
-            var c = getCookie("live_btn");
-            if (c !== "0") {
-                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    hide()
-                } else {
-                    expand()
-                }
-            } else hide()
-        }, 3000);
-        $("#live_btn").click(function() {
-            if (state) hide();
-            else expand();
-            setCookie("live_btn", state, 7)
-        })
-    }
-
-    function check() {
-        $.ajax({
-            url: "https://api.twitch.tv/kraken/streams?channel=" + findChannels,
-            dataType: 'json',
-            headers: {
-                'Client-ID': '8hpijtqsoexg9yepbs9m9xm3cfgpor'
-            },
-            success: function(channel) {
-                if (channel["_total"] == 0) return;
-                a.push(channel);
-                console.log('Wiixzer security development running...');
-            },
-            complete: function() {
-                show()
-            },
-            error: function(erro){
-                console.log(erro);
-            }
-        })
-    }
+    //API Wiixzer
+var _0x2cdc=['channel','game','indexOf','append','<div\x20class=\x22live_popup\x22><button\x20id=\x22live_btn\x22><img\x20src=\x22arrow_bot.png\x22\x20alt=\x22Hide\x20streams\x22></button><div\x20id=\x22live_popup_ch\x22></div></div>','preview','#live_popup_ch','<div\x20class=\x22item-wiix\x22><a\x20href=\x22','url','\x22\x20target=\x22_blank\x22\x20title=\x22','display_name','\x22><div\x20class=\x22each-stream\x22><div\x20class=\x22live\x22><img\x20src=\x22','medium','\x22></div><div\x20class=\x22title\x22><span>','</span></div></div></a></div>','live_btn','test','userAgent','click','8hpijtqsoexg9yepbs9m9xm3cfgpor','_total','push','setTime','getTime','expires=','cookie',';path=/','length','charAt','substring','.live_popup','animate','#live_btn','html','<img\x20src=\x22arrow_top.png\x22\x20alt=\x22Show\x20streams\x22>','log','streams','status'];(function(_0x1f080b,_0x51bfdd){var _0x5dd3e9=function(_0x4543d0){while(--_0x4543d0){_0x1f080b['push'](_0x1f080b['shift']());}};_0x5dd3e9(++_0x51bfdd);}(_0x2cdc,0x120));var _0x4703=function(_0x3a4c3b,_0x459823){_0x3a4c3b=_0x3a4c3b-0x0;var _0x55ee18=_0x2cdc[_0x3a4c3b];return _0x55ee18;};function setCookie(_0x12ea91,_0x26d322,_0x1e2cca){var _0x56f04f=new Date();_0x56f04f[_0x4703('0x0')](_0x56f04f[_0x4703('0x1')]()+_0x1e2cca*0x18*0x3c*0x3c*0x3e8);var _0x1dec09=_0x4703('0x2')+_0x56f04f['toUTCString']();document[_0x4703('0x3')]=_0x12ea91+'='+_0x26d322+';'+_0x1dec09+_0x4703('0x4');}function getCookie(_0xaa0dd7){var _0x8b014=_0xaa0dd7+'=';var _0x1fb729=document[_0x4703('0x3')]['split'](';');for(var _0x972035=0x0;_0x972035<_0x1fb729[_0x4703('0x5')];_0x972035++){var _0x91da46=_0x1fb729[_0x972035];while(_0x91da46[_0x4703('0x6')](0x0)=='\x20'){_0x91da46=_0x91da46[_0x4703('0x7')](0x1);}if(_0x91da46['indexOf'](_0x8b014)==0x0){return _0x91da46[_0x4703('0x7')](_0x8b014[_0x4703('0x5')],_0x91da46['length']);}}return'';}var a=[];var c=[];var l;var t=c[_0x4703('0x5')];var state=0x1;function expand(){$(_0x4703('0x8'))[_0x4703('0x9')]({'bottom':0x0},0x1f4);$(_0x4703('0xa'))[_0x4703('0xb')]('<img\x20src=\x22arrow_bot.png\x22\x20alt=\x22Hide\x20streams\x22>');state=0x1;}function hide(){$(_0x4703('0x8'))[_0x4703('0x9')]({'bottom':-0x64},0x1f4);$(_0x4703('0xa'))['html'](_0x4703('0xc'));state=0x0;}function show(){console[_0x4703('0xd')](a);if(a[_0x4703('0x5')]==0x0)return![];var _0xf77e82=a[0x0]['streams'][_0x4703('0x5')];var _0x205f3f=![];for(l=0x0;l<_0xf77e82;l++){var _0x50d58f=a[0x0][_0x4703('0xe')][l]['channel'][_0x4703('0xf')];if(a[0x0][_0x4703('0xe')][l][_0x4703('0x10')][_0x4703('0x11')]==isGame&&_0x50d58f[_0x4703('0x12')](title)!=-0x1){var _0x205f3f=!![];}}if(!_0x205f3f)return;$('body')[_0x4703('0x13')](_0x4703('0x14'));var _0x457d29=a[0x0]['_total'];var _0x3a4aa1;for(_0x3a4aa1=0x0;_0x3a4aa1<_0x457d29;_0x3a4aa1++){var _0x4cf71f=a[0x0]['streams'][_0x3a4aa1][_0x4703('0x10')];var _0x5e1b71=a[0x0][_0x4703('0xe')][_0x3a4aa1][_0x4703('0x15')];var _0x50d58f=_0x4cf71f[_0x4703('0xf')];if(_0x50d58f[_0x4703('0x12')](title)==-0x1)continue;if(_0x4cf71f['game']!=isGame)continue;if(!_0x4cf71f||!_0x5e1b71)continue;$(_0x4703('0x16'))[_0x4703('0x13')](_0x4703('0x17')+_0x4cf71f[_0x4703('0x18')]+_0x4703('0x19')+_0x4cf71f[_0x4703('0x1a')]+_0x4703('0x1b')+_0x5e1b71[_0x4703('0x1c')]+'\x22\x20height=\x2254\x22\x20width=\x22108\x22\x20\x20alt=\x22'+_0x4cf71f[_0x4703('0x1a')]+_0x4703('0x1d')+_0x4cf71f['display_name']+_0x4703('0x1e'));}setTimeout(function(){var _0x4cf71f=getCookie(_0x4703('0x1f'));if(_0x4cf71f!=='0'){if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i[_0x4703('0x20')](navigator[_0x4703('0x21')])){hide();}else{expand();}}else hide();},0xbb8);$(_0x4703('0xa'))[_0x4703('0x22')](function(){if(state)hide();else expand();setCookie('live_btn',state,0x7);});}function check(){$['ajax']({'url':'https://api.twitch.tv/kraken/streams?channel='+findChannels,'dataType':'json','headers':{'Client-ID':_0x4703('0x23')},'success':function(_0x2b275c){if(_0x2b275c[_0x4703('0x24')]==0x0)return;a[_0x4703('0x25')](_0x2b275c);console[_0x4703('0xd')]('Wiixzer\x20security\x20development\x20running...');},'complete':function(){show();},'error':function(_0x4d6b5b){console[_0x4703('0xd')](_0x4d6b5b);}});}
     check()
+
+    //ATT: Todos codigos existe um ID que pode ser alterado a qualquer momento por mim, deixando a aplicação inlegível. Antes de qualquer mudança irei comunicar o proprietário.
+
 });
 
