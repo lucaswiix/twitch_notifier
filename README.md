@@ -1,16 +1,15 @@
-# V3 of Twitch Notifier Tibia
+# V4 of Twitch Notifier Tibia
 
 ###### Required:
 - [ Jquery 3.3~ + ] 
-- [ FontAwesome Solid 5.5~ +]
-
+[Icons/bg directory: /layouts/tibiacom/arrow_top.png]
 
 ###### Who Install:
 - [ Add all in same directory ]
 - Put inside the head tags
 ```
-<link rel="stylesheet" href="style-v3.css">
-<script src="twitch_v3.js" type="text/javascript"></script>
+<link rel="stylesheet" href="wiixzer.css">
+<script src="wiixzer.js" type="text/javascript"></script>
 ```
 
 - Lucaswiix Dev
